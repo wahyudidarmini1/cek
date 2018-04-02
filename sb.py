@@ -49,12 +49,12 @@ while True:
                             contact = client.getContact(sender)
                             if text.lower() == 'me':
                                 client.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-                            elif text.lower() == 'speed':
+                            elif text.lower() == 'Sp':
                                 start = time.time()
                                 client.sendText(receiver, "TestSpeed")
                                 elapsed_time = time.time() - start
                                 client.sendText(receiver, "%sdetik" % (elapsed_time))
-                            elif 'spic' in text.lower():
+                            elif 'pp' in text.lower():
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
@@ -70,7 +70,7 @@ while True:
                                     client.sendImageWithURL(receiver, a)
                                 except Exception as e:
                                     client.sendText(receiver, str(e))
-                            elif text.lower() == 'tagall':
+                            elif text.lower() == 'Say':
                                 group = client.getGroup(msg.to)
                                 nama = [contact.mid for contact in group.members]
                                 nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
@@ -123,7 +123,7 @@ while True:
                                         nm5 += [nama[m]]
                                     client.mention(msg.to, nm5)             
                                 client.sendText(receiver, "Members :"+str(jml))
-                            elif text.lower() == 'ceksider':
+                            elif text.lower() == 'Crot':
                                 try:
                                     del cctv['point'][msg.to]
                                     del cctv['sidermem'][msg.to]
